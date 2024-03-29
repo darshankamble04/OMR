@@ -1,0 +1,39 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+.container {
+    display: flex;
+    height: 100vh;
+}
+.user-info {
+    /* width: 20%; */
+    background-color: #f0f0f0;
+    padding: 30px;
+}
+.user-info img {
+    width: 100%;
+    border-radius: 50%;
+}
+.dashboard-content {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.box {
+    width: calc(100% - 20px);
+    background-color: #ddd;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.dotted-box {
+    border: 2px dashed #777;
+    width: calc(100% - 20px);
+    padding: 20px;
+    margin-right: 0;
+}
