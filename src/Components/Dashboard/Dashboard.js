@@ -1,8 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './dashboard.css'
 import avatar from '../../assets/img/avatar.webp'
 import Temp from '../../Temp'
 function Dashboard() {
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+  };
+
+  const handleSubmit = async () => {
+    if (!file) {
+      alert('Please select a file');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('answerSheet', file);
+
+    try {
+      // Send file to backend for processing
+      const response = await fetch('http://127.0.0.1:5000/upload', {
+        method: 'POST',
+        body: formData
+      });
+
+      // Process response from backend
+      const result = await response.json(); 
+      console.log('Result:', result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
   return (
     <div>
       <div class="navbar">
@@ -18,44 +48,12 @@ function Dashboard() {
           <h6>Email : darshankamble7371@gmail.com</h6>
         </div>
         <div class="dashboard-content d-flex flax-c">
-          <div class="box">Box 1</div>
+          <div class="box">
+                  test 01
+                  <input type="file" onChange={handleFileChange} />
+                  <button onClick={handleSubmit}>Upload</button>
+                  </div>
           <div class="box">Box 2</div>
-          <button type="button" class=" dotted-box" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Add
-          </button>
-
-
-
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                  <label className="mx-2" htmlFor="username">Subject name </label>
-                  <input type="text" id="username" name="username" />
-                  <br/>
-                  <br/>
-                  <label className="mx-2" htmlFor="username">Class </label>
-                  <input type="text" id="username" name="username" />
-                  <br/>
-                  <br/>
-                  <label className="mx-2" htmlFor="username">Answer Key </label>
-                  <Temp/>
-
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-dark">Publish</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
 
         </div>
       </div>
