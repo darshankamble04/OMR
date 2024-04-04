@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './style.css';
 import { Link} from 'react-router-dom';
 import db from '../../Firebase';
+import Navbar from '../Common/Navbar';
 
 
 
@@ -66,7 +67,9 @@ function Login() {
     }, [data])
 
     return (
+        
         <div>
+        <Navbar/>
             <div className="login-container">
                 <div className="login-form">
                     <h2>Login</h2>
@@ -84,7 +87,7 @@ function Login() {
                         <input type="password" id="password" name="password" value={loginData.password} onChange={handleChange} />
 
                         <button type="submit" class="btn btn-dark">Login</button>
-                        <Link ref={redirToAdDashboard} to="/ad-dashboard"></Link><Link ref={redirToDashboard} to="/dashboard"></Link>
+                        <Link ref={redirToAdDashboard} to="/teacherdash"></Link><Link ref={redirToDashboard} to="/dashboard"></Link>
                         <p className="forgot-password">New user?<Link to="/registration">Register</Link></p>
                     </form>
                 </div>

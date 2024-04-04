@@ -11,7 +11,8 @@ import ContactUs from "./Components/Common/ContactUs";
 import AboutUs from "./Components/Common/AboutUs";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Landing from "./Components/Landing/Landing";
-import AdDashboard from "./Components/Dashboard/AdDashboard";
+import TeacherDash from "./Components/Dashboard/TeacherDash";
+import Navbar from "./Components/Common/Navbar";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route Exact path="/login" element={<Login />}></Route>
           <Route Exact path="/registration" element={<Register />}></Route>
           <Route Exact path="/dashboard" element={<Dashboard />}></Route>
-          <Route Exact path="/ad-dashboard" element={<AdDashboard/>}></Route>
+          <Route Exact path="/teacherdash" element={<TeacherDash/>}></Route>
           <Route Exact path="/about-us" element={<AboutUs />}></Route>
           <Route Exact path="/contact-us" element={<ContactUs />}></Route>
         </Routes>
