@@ -1,0 +1,32 @@
+.work{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: red; */
+    /* padding-left: 10%; */
+}
+.work-heading{
+    width: 100vw;
+    height: 10vh;
+    /* background-color: yellow; */
+    font-size: 60px;
+    text-align: center;
+    color: #3CC291;
+
+}
+.work .container .work-step{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 15vh;
+    width: 100%;
+    /* background-color: green; */
+}
+.work-step-describe{
+    width: 70%;
+    /* background-color: aqua; */
+    padding-left: 5%;
+    font-size: 30px;
+}

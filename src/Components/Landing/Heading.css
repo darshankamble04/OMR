@@ -1,0 +1,67 @@
+.container1{
+    background-color: white;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.compart1{
+    background-color: white;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction:column;
+}
+.compart1 .teacherly{
+    height: 30%;
+    width: 100%;
+    margin-top: 10%;
+    background-color: white;
+    color: black;
+    font-size: 70px;
+    padding-left: 10%;
+    padding-top: 5%;
+}
+.compart1 .teacherly .teacherlystyl{
+    color: #3CC291;
+}
+.compart1 .describe1{
+    height: 10%;
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-size: 40px;
+    padding-left: 10%;
+    padding-top: 3%;
+}
+.compart1 .describe2{
+    height: 40%;
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    padding: 1% 10%;
+    
+}
+.compart1 .describe2 .getstarted{
+    /* height: 40%; */
+    width: 200px;
+    background-color: #2AD497;
+    color: black;
+    margin-top: 3%;
+    font-size: 21px;
+}
+
+.compart2{
+    background-color: white;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+}

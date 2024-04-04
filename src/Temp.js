@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Await } from 'react-router-dom';
 
-function Temp() {
+function Temp(props) {
 
     const handleFileUpload =  (event) => {
         const file = event.target.files[0];
@@ -15,6 +15,7 @@ function Temp() {
                 const rows = text.split('\n').map(row => row.split(','));
                 const headers = rows[0];
                 console.log(rows);
+                props.data(rows);
             } catch (error) {
                 console.log(error)
             }

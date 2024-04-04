@@ -1,0 +1,127 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+.container {
+    display: flex;
+    height: 100vh;
+}
+.user-info {
+    /* width: 20%; */
+    background-color: #f0f0f0;
+    padding: 30px;
+}
+.user-info img {
+    width: 100%;
+    border-radius: 50%;
+}
+.dashboard-content {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+
+.welcome-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    width: 95vw;
+    /* background-color: yellow; */
+    margin-left: 5vw;
+}
+.welcome-message{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    /* background-color: red; */
+    width: 95vw;
+    /* margin-left: 10vw; */
+}
+.welcome-name{
+    color: #3CC291;
+}
+.userimg{
+    
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.add-test-btn{
+    border: 0px;
+    background-color: #3CC291;
+    border-radius: 100%;
+    margin-left: 2rem;
+    padding: auto;
+    width: 50px;
+    height: 50px;
+}
+.material-symbols-outlined{
+    font-size: 2.5rem;
+}
+.plusSym{
+    height: 10vh;
+    width: 10vh;
+    /* border-radius: 50%; */
+    background-color: #3CC291;
+    color: white;
+    font-size: 2.7rem;
+}
+.test-container{
+    display: flex;
+    /* width: 80vw;
+    height: auto; */
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+    margin-left: 4.5rem;
+    /* background-color: aqua; */
+}
+
+.test-box {
+    background: white;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    /* width: calc(33% - 200px); */
+    width: 18rem;
+    height: 22rem;
+    margin: 10px;
+    box-sizing: border-box;
+    flex-direction: column;
+    /* background-color: blue; */
+    border-radius: 20px;
+    margin-left: 25px;
+    border: 2px solid #3CC291;
+    padding: 30px;
+}
+.analyse-btn{
+    background-color: #3CC291;
+}
+.testHeading{
+    height: 5vw;
+    /* font-size: 2rem; */
+    margin-left: 5vw;
+}
+.confused{
+    font-size: 2.7rem;
+}
+.avatar-modal{
+    height: 10vh;
+    border: 0px;
+    background-color:white;
+}
+.avatar-modal-img{
+    height: 10vh;
+    border-radius: 100%;
+}
+.avatar-modal-btn{
+    border: 0px;
+    background-color: white;
+}
