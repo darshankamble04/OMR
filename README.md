@@ -1,3 +1,5 @@
+This Optical Mark Recognition (OMR) scanning system designed for checking competitive exam papers, admission forms, and different assessments using Support Vector Machines (SVM), Convolutional Neural Networks (CNN) and Optical Character Recognition (OCR). The main goal is to make the evaluation process automatic, reducing mistakes and making things more efficient. With the help of OMR technology, our system lets examiners score tests automatically, making their job easier.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
