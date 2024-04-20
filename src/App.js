@@ -13,6 +13,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import Landing from "./Components/Landing/Landing";
 import TeacherDash from "./Components/Dashboard/TeacherDash";
 import Navbar from "./Components/Common/Navbar";
+import AnalysisT from "./Components/Dashboard/Components/AnalysisT";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route Exact path="/registration" element={<Register />}></Route>
           <Route Exact path="/dashboard" element={<Dashboard />}></Route>
           <Route Exact path="/teacherdash" element={<TeacherDash/>}></Route>
+          <Route Exact path="/analysis/:iid/:tid" element={<AnalysisT />}></Route>
           <Route Exact path="/about-us" element={<AboutUs />}></Route>
           <Route Exact path="/contact-us" element={<ContactUs />}></Route>
         </Routes>

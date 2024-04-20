@@ -92,8 +92,8 @@ const TeacherDash = ({ name, title }) => {
       <Navbar />
       <div className="welcome-container">
         <div className="welcome-message">
-          <p>
-            Welcome, <span className="welcome-name">{name}!</span>
+          <p style={{fontSize:"50px"}}>
+            Welcome, <span className="welcome-name">Vrunda Mahajan!</span>
           </p>
           <button
             type="button"

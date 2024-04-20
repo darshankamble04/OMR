@@ -8,6 +8,7 @@ import db from "../../Firebase";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import { Link } from "react-router-dom";
 const Dashboard = ({ name, title }) => {
   // Update the renderTestBoxes function
   const context = useContext(DataContext);
@@ -30,7 +31,7 @@ const Dashboard = ({ name, title }) => {
     setFile(selectedFile);
   };
 
-  const handleSubmit = async (id) => {
+  const handleSubmit = async (id, ansData) => {
     console.log(id);
     if (!file) {
       alert("Please select a file");
@@ -71,14 +72,50 @@ const Dashboard = ({ name, title }) => {
             },
           }),
         });
-      if (!data){handleSubmit(id)};
+      if (!data) {
+        handleSubmit(id);
+      }
 
-
-      console.log("AnswerKey: ", data);
+      console.log("AnswerKey: ", ansData);
       console.log("AnswerSheet: ", scan);
+      // console.log(scan.ans_marked[0]);
+      let total_m = 0;
+      let ans_start = 4;
+      // console.log(data[ans_start])
+      for (var i = 0; i < 30; i++) {
+        // console.log(parseInt(ansData[ans_start]),scan.ans_marked[i][0])
+        // console.log(Math.floor(scan.ans_marked[i]),Math.floor(data[ans_start]))
+        if (parseInt(ansData[ans_start]) == scan.ans_marked[i][0]) {
+          total_m++;
+        }
+        ans_start = ans_start + 3;
+      }
 
+      console.log(total_m);
 
-      
+      const targetEmail = window.localStorage.getItem("omr-Id");
+      const marksToAdd = total_m;
+
+      const docRef = db.collection("tests").doc(id);
+      docRef.get().then((doc) => {
+        if (doc.exists) {
+          const studArray = doc.data().stud || [];
+
+          const existingStudIndex = studArray.findIndex(
+            (stud) => stud.studEmail === targetEmail
+          );
+          console.log(existingStudIndex);
+          if (existingStudIndex !== -1) {
+            studArray[existingStudIndex].results = marksToAdd;
+          } else {
+            studArray.push({
+              studEmail: targetEmail,
+              results: marksToAdd,
+            });
+          }
+          docRef.update({ stud: studArray });
+        }
+      });
     } catch (error) {
       console.error("Error:", error);
     }
@@ -107,8 +144,8 @@ const Dashboard = ({ name, title }) => {
       <Navbar />
       <div className="welcome-container">
         <div className="welcome-message">
-          <p>
-            Welcome, <span className="welcome-name">{name}!</span>
+          <p style={{ fontSize: "50px" }}>
+            Welcome, <span className="welcome-name">Darshan !</span>
           </p>
           <button
             type="button"
@@ -169,21 +206,46 @@ const Dashboard = ({ name, title }) => {
                 test &&
                 test.class === userProfile.class && (
                   <div className="test-box" key={index}>
-                    <p>Test Name :{test.testName}</p>
-                    <p>Teacher Name :{test.teacherEmail}</p>
-                    <p>Subject Name :{test.subName}</p>
-                    <p>Test id :{test.id}</p>
-                    <p>class id :{test.class}</p>
-                    {/* You can add other properties if necessary */}
+                    <p>Test Name: {test.testName}</p>
+                    <p>Teacher Name: {test.teacherEmail}</p>
+                    <p>Subject Name: {test.subName}</p>
+                    <p>Test id: {test.id}</p>
+                    <p>Class id: {test.class}</p>
 
-                    <input type="file" onChange={handleFileChange} />
-                    <button onClick={() => handleSubmit(test.id)}>
-                      Upload
-                    </button>
-
-                    {/* <button className="btn btn-primary analyse-btn">
-                      Analyse
-                    </button> */}
+                    {/* Check if marks exist for the current user */}
+                    {test.stud &&
+                    test.stud.some(
+                      (e) =>
+                        e.studEmail === window.localStorage.getItem("omr-Id")
+                    ) ? (
+                      // If marks exist, display them
+                      test.stud
+                        .filter(
+                          (e) =>
+                            e.studEmail ===
+                            window.localStorage.getItem("omr-Id")
+                        )
+                        .map((e, index) => (
+                          <>
+                            <p key={index}>Marks: {e.results}</p>
+                            <Link
+                              to={"/analysis/"+index+"/"+ test.id}
+                            >
+                              <button type="submit" class="btn btn-success">analyse</button>
+                            </Link>
+                          </>
+                        ))
+                    ) : (
+                      // If marks don't exist, display file upload button
+                      <>
+                        <input type="file" onChange={handleFileChange} />
+                        <button
+                          onClick={() => handleSubmit(test.id, test.data)}
+                        >
+                          Upload
+                        </button>
+                      </>
+                    )}
                   </div>
                 )
             )}

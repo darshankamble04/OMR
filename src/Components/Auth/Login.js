@@ -86,7 +86,7 @@ function Login() {
                         <label htmlFor="password">Password</label>
                         <input type="password" id="password" name="password" value={loginData.password} onChange={handleChange} />
 
-                        <button type="submit" class="btn btn-dark">Login</button>
+                        <button type="submit" class="btn btn-success">Login</button>
                         <Link ref={redirToAdDashboard} to="/teacherdash"></Link><Link ref={redirToDashboard} to="/dashboard"></Link>
                         <p className="forgot-password">New user?<Link to="/registration">Register</Link></p>
                     </form>

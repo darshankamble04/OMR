@@ -11,6 +11,7 @@
   background-color: #f7f7f7;
 
   box-shadow: 0 0 10px rgba(92, 92, 92, 0.1);
+  background-color: #dcf8ee;
 }
 
 
@@ -20,6 +21,7 @@
 .login-form select {
   width: 100%;
   margin-bottom: 15px;
+  
 }
 
 .login-form button {
@@ -30,9 +32,11 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  
 }
 .login-form button>a {
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
+  background-color: #3CC291;
 }

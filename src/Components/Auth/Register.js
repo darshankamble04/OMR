@@ -83,7 +83,7 @@ function Register() {
                         <label htmlFor="password">Password</label>
                         <input type="password" id="password" name="password" value={registrationData.password} onChange={handleChange} />
 
-                        <button type="submit" className="btn btn-dark">Register</button>
+                        <button type="submit" className="btn btn-success">Register</button>
                         <Link ref={redirToAdDashboard} to="/teacherdash"></Link><Link ref={redirToDashboard} to="/dashboard"></Link>
                         <p className="forgot-password">Already registered? <Link to="/login">Login</Link></p>
                     </form>
